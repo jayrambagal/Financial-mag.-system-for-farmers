@@ -34,7 +34,7 @@ const Graph = () => {
             <div className="chart relative">
             <Doughnut {...config}></Doughnut>
                 <h3 className='mb-4 font-bold title'>Total
-                    <span className='block text-3xl text-emerald-400'>${0}</span>
+                    <span className='block text-3xl text-green-800'> <span>&#8377; {0}</span></span>
                 </h3>
             </div>   
         

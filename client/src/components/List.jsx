@@ -1,5 +1,7 @@
 import React from "react";
 import trash from "../assets/trash.jpg"
+import { AiFillDelete } from "react-icons/ai";
+
 import "../App.css"
 const List = () => {
   return (
@@ -12,8 +14,7 @@ const List = () => {
       style={{ borderRight: "#e5e5e5" }}
     >
       <button className="px-3">
-        
-        <img className="trash_img" src={trash} alt="" />
+        <AiFillDelete />
       </button>
       <span className="block w-full">Sallary</span>
     </div>
