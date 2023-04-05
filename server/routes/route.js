@@ -1,21 +1,16 @@
-const express = require("express")
-const routes = express.Router()
-const model = require("../database/schema")
+const routes = require('express').Router();
+const controller = require('../controllers/controller');
 
-routes.post("/test",async(req,res)=>{
-    try{
+routes.route('/api/categories')
+    .post(controller.create_Categories)
+    .get(controller.get_Categories)
 
-        const Create = new model.Categories({
-            type: "Investment",
-            color: "#FCBE44"
-        })
-        await Create.save()
-        
-        res.status(200).json({yessss:"ho gaya bhai tere se"})
-    }catch(e){
-        res.status(400).json({error:"bhai tu rahane de tere se nahi hoga"})
-        console.log(e);
-    }
-})
+routes.route('/api/transaction')
+    .post(controller.create_Transaction)
+    .get(controller.get_Transaction)
+    .delete(controller.delete_Transaction)
+
+routes.route('/api/labels')
+    .get(controller.get_Labels)
 
 module.exports = routes;
