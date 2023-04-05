@@ -29,7 +29,7 @@ const Form = () => {
                 <input type="text" {...register("amount")}    placeholder='Amount' className='form-input' />
             </div>
             <div className="submit-btn">
-                <button className='border py-2 text-black bg-green-800 w-full'>Make Transaction</button>
+                <button className='border py-2 text-white bg-green-800 w-full rounded-lg'>Make Transaction</button>
             </div>
         </div>    
     </form>
