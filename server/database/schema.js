@@ -32,8 +32,14 @@ const transaction_model = new Schema({
     }
 })
 
+const transaction_total = new Schema({
+    name:{type:String},
+    total:{type:Number}
+})
+
 const Categories = mongoose.model('categories', categories_model)
 const Transaction = mongoose.model('transaction', transaction_model);
+const Total = mongoose.model("total",transaction_total) 
 
 exports.default = Transaction;
-module.exports = {Categories,Transaction}
+module.exports = {Categories,Transaction,Total}
