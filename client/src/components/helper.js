@@ -8,7 +8,7 @@ export function getSum(transaction, type){
                         return {
                             'type' : key,
                             'color' : objs[0].color,
-                            'total' : _.sumBy(objs, 'amount')
+                            'total' : _.sumBy(objs, 'amount')   
                         }
                       })
                       .value()
@@ -52,5 +52,31 @@ export function chart_Data(transaction, custom){
 }
 
 export function getTotal(transaction){
-    return _.sum(getSum(transaction));
+
+    return _.sum(getSum(transaction)) - total(transaction);
+}
+
+
+export function total(transaction){
+
+    const total = [0,0,0]  //investment, saving, expense
+    console.log(total);
+
+    for(let val=0; val < transaction.length; val++){
+        const values = Object.values(transaction[val])
+        console.log(values);
+        console.log(values[2]);
+
+        if(values[2] === "Investment"){
+            total[0]+=values[3]
+        }
+        else if(values[2] === "Savings"){
+            total[1]+=values[3]
+        }
+        else{
+            total[2]+=values[3]
+        }
+    }
+    
+    return total[2]*2
 }

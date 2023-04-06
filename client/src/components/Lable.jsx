@@ -4,7 +4,7 @@ import { getLabels } from "./helper";
 
 const Lable = () => {
   const { data, isFetching , isSuccess, isError } = api.useGetLabelsQuery()
-  console.log(data);  
+  // console.log(data);  
   let Transactions;
   
     if(isFetching){
