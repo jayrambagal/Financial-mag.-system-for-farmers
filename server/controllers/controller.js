@@ -3,8 +3,8 @@ const model = require("../database/schema")
 async function create_Categories(req, res){
     try{
         const Create = new model.Categories({
-            type: "Investment",
-            color: "#FCBE44"
+            type: "Expense",
+            color: "#C43095"
         })
         await Create.save()
         res.status(200).json({msg:"succsessfully save data "})
@@ -91,6 +91,32 @@ async function create_Categories(req, res){
      })
  
  }
+
+ //  get: http://localhost:8080/api/labels
+async function get_Labels(req, res){
+
+    model.Transaction.aggregate([
+        {
+            $lookup : {
+                from: "categories",
+                localField: 'type',
+                foreignField: "type",
+                as: "categories_info"
+            }
+        },
+        {
+            $unwind: "$categories_info"
+        }
+    ]).then(result => {
+        let data = result.map(v => Object.assign({}, { _id: v._id, name: v.name, type: v.type, amount: v.amount, color: v.categories_info['color']}));
+        res.json(data);
+    }).catch(error => {
+        res.status(400).json("Looup Collection Error");
+    })
+
+}
+
+
  
  module.exports = {
      create_Categories,
