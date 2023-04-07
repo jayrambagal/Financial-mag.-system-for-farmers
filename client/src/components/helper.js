@@ -53,7 +53,7 @@ export function chart_Data(transaction, custom){
 
 export function getTotal(transaction){
 
-    return _.sum(getSum(transaction)) - total(transaction);
+    return _.sum(getSum(transaction)) ;
 }
 
 
