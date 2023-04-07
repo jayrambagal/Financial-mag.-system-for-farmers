@@ -56,13 +56,13 @@ export function chart_Data(transaction, custom){
 
 // ***** calculating the total sum *****************************************************************
 export function getTotal(transaction){
-    return _.sum(getSum(transaction)) ;
+    return _.sum(getSum(transaction)) - total(transaction) ;
 }
 
 // ***** expemce will be substracted form total sum used function if needed *************************
 export function total(transaction){
 
-    const total = [0,0,0]  //investment, saving, expense
+    const total = [0,0,0]  //icome, invesment, expense
     console.log(total);
 
     for(let val=0; val < transaction.length; val++){
@@ -70,10 +70,10 @@ export function total(transaction){
         console.log(values);
         console.log(values[2]);
 
-        if(values[2] === "Investment"){
+        if(values[2] === "Income"){
             total[0]+=values[3]
         }
-        else if(values[2] === "Savings"){
+        else if(values[2] === "Investment"){
             total[1]+=values[3]
         }
         else{
