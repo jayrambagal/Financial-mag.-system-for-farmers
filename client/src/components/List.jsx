@@ -1,6 +1,5 @@
 import React from "react";
 import "../App.css";
-import { AiFillDelete } from "react-icons/ai";
 import { default as api } from "../store/apiSlice.js";
 
 const List = () => {
@@ -42,15 +41,18 @@ function Transaction({ category, handler }) {
       style={{ borderRight: `8px solid ${category.color ?? "#e5e5e5"}` }}
     >
       <button className="px-3" onClick={handler}>
-        <box-icon
+      <box-icon
           data-id={category._id ?? ""}
           color={category.color ?? "#e5e5e5"}
           size="15px"
           name="trash"
-        >{<AiFillDelete/>}delete </box-icon>
+        > delete </box-icon>
       </button>
+        
+      
       <span className="block w-full">{category.name ?? ""}</span>
     </div>
     </>
   );
 }
+

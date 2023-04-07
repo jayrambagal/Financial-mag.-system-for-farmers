@@ -23,15 +23,15 @@ export default function Form() {
         <form id='form' onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-4">
                 <div className="input-group">
-                    <input type="text" {...register('name')} placeholder='Sallary, House Rend, SIP' className='form-input' />
+                    <input type="text" {...register('name')} placeholder='seeds, fertilizer, labor, equipment, etc.' className='form-input' required />
                 </div>
-                <select className='form-input' {...register('type')}>
-                    <option value="Investment" defaultValue>Investment</option>
+                <select className='form-input' {...register('type')} >
+                    <option value="Income" defaultValue>Income</option>
+                    <option value="Investment">Investment</option>
                     <option value="Expense">Expense</option>
-                    <option value="Savings">Savings</option>
                 </select>
                 <div className="input-group">
-                    <input type="text" {...register('amount')} placeholder='Amount' className='form-input' />
+                    <input type="text" {...register('amount')} placeholder='Amount' className='form-input' required />
                 </div>
                 <div className="submit-btn">
                     <button className='border py-2 text-white bg-green-800 w-full rounded-lg'>Make Transaction</button>
