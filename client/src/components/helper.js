@@ -56,7 +56,7 @@ export function chart_Data(transaction, custom){
 
 // ***** calculating the total sum *****************************************************************
 export function getTotal(transaction){
-    return _.sum(getSum(transaction)) - total(transaction) ;
+    return _.sum(getSum(transaction)) ;
 }
 
 // ***** expemce will be substracted form total sum used function if needed *************************
