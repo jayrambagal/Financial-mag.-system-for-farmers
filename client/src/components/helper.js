@@ -1,5 +1,6 @@
 import  _ from 'lodash';
 
+// ***** geeting all tyoes of data into single array with thire sum **********************************
 export function getSum(transaction, type){
     let sum = _(transaction)
                       .groupBy("type")
@@ -15,6 +16,7 @@ export function getSum(transaction, type){
     return sum;
 }
 
+// ******** calculationg the percentage for lables ***********************************************
 export function getLabels(transaction){
     let amountSum = getSum(transaction, 'type');
     let Total = _.sum(getSum(transaction));
@@ -26,6 +28,7 @@ export function getLabels(transaction){
     return percent;
 }
 
+// ******* danaught charts values setup **********************************************************
 export function chart_Data(transaction, custom){
 
     let bg = _.map(transaction, a => a.color)
@@ -51,12 +54,12 @@ export function chart_Data(transaction, custom){
 
 }
 
+// ***** calculating the total sum *****************************************************************
 export function getTotal(transaction){
-
     return _.sum(getSum(transaction)) ;
 }
 
-
+// ***** expemce will be substracted form total sum used function if needed *************************
 export function total(transaction){
 
     const total = [0,0,0]  //investment, saving, expense
